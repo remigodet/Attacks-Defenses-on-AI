@@ -78,6 +78,23 @@ Original work : https://github.com/ryan-feng/GRAPHITE
 ___
 ### Laser Attack
 *Camille Lançon*
+### Packages
+```
+cv2==4.6.0
+numpy==1.23.4
+matplotlib==3.6.0
+PIL==9.2.0
+tensorflow==2.12.0
+keras==2.12.0
+sklearn==1.1.3
+```
+For Laser Attack, follow these steps :
+1. Download the GHTSRB dataset at this address : https://www.kaggle.com/datasets/meowmeowmeowmeowmeow/gtsrb-german-traffic-sign
+2. Name the dataset "GHTSRB" and put it in the folder LaserAttack.
+3. Run the notebook "train_model".
+4. Run the notebook "laser_attack". This attack is performed on the image called "stop.png". You can replace this image by another one if you want to perform the attack on another stop sign.
+5. The parameters of the laser beam are given at the end of the notebook.
+6. You can watch the results in the folder "Results".
 ___
 ### Adversarial texture attack
 *Lamiaa El Bouchattaoui*
