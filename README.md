@@ -79,5 +79,8 @@ ___
 ### Laser Attack
 *Camille Lançon*
 ___
+### Adversarial texture attack
+*Lamiaa El Bouchattaoui*
+___
 
 
