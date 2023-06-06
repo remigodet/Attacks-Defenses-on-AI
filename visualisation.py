@@ -4,16 +4,9 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-print(pd.__version__)
+# print(pd.__version__)
 
 
-# read from memory
-df = pd.read_excel("./results.xlsx", engine='openpyxl')
-
-# data cleaning
-df = df.replace(to_replace="No detection", value=None)
-df["FocaleNumeric"] = df["Focale"].apply(lambda x: int(x[1:-2]))
-df["LongitudeNumeric"] = df["Longitude"].apply(lambda x: float(x[:-1]))
 # df["AlphaNumeric"] = df["alpha"].apply(lambda x: int(x[2:-1]))
 # print table
 # print(df.info())
@@ -54,32 +47,47 @@ df["LongitudeNumeric"] = df["Longitude"].apply(lambda x: float(x[:-1]))
 #                  | (df["Attaques"] == "témoin")]
 
 def add_all_zooms(column_name, df):
+        '''
+        This unfolds the chose zoom accuracies into several columns in the dataframe. 
+        '''
 
-    df_data[[f"{column_name}1",
-            f"{column_name}2",
-            f"{column_name}3",
-            f"{column_name}4",
-            f"{column_name}5",
-            f"{column_name}6"]] = df_data.apply(lambda x:pd.Series(x[f"{column_name}"][1:-1].split(",")), axis=1)
-    df_data[[f"{column_name}1",
-            f"{column_name}2",
-            f"{column_name}3",
-            f"{column_name}4",
-            f"{column_name}5",
-            f"{column_name}6"]] = df_data[[f"{column_name}1",
-                                            f"{column_name}2",
-                                            f"{column_name}3",
-                                            f"{column_name}4",
-                                            f"{column_name}5",
-                                            f"{column_name}6"]].apply(lambda x:pd.Series([float(x[i])  if ("No detection" not in x[i]) else None for i in range(len(x))]), axis=1)
-    return df_data
+        df[[f"{column_name}1",
+                f"{column_name}2",
+                f"{column_name}3",
+                f"{column_name}4",
+                f"{column_name}5",
+                f"{column_name}6"]] = df.apply(lambda x:pd.Series(x[f"{column_name}"][1:-1].split(",")), axis=1)
+        df[[f"{column_name}1",
+                f"{column_name}2",
+                f"{column_name}3",
+                f"{column_name}4",
+                f"{column_name}5",
+                f"{column_name}6"]] = df[[f"{column_name}1",
+                                                f"{column_name}2",
+                                                f"{column_name}3",
+                                                f"{column_name}4",
+                                                f"{column_name}5",
+                                                f"{column_name}6"]].apply(lambda x:pd.Series([float(x[i])  if ("No detection" not in x[i]) else None for i in range(len(x))]), axis=1)
+        return df
 
-df_data = df
-# df_data = df_data.explode("AccuracyCarForcedZoom")
-df_data = add_all_zooms("AccuracyCarForcedZoom", df_data)
-df_data = add_all_zooms("AccuracyPersonForcedZoom", df_data)
-df_data = add_all_zooms("AccuracyStopSignForcedZoom", df_data)
 
-print(df_data.info())
 
-df_data.to_excel("final_results.xlsx")
+# read from memory
+df = pd.read_excel("./results.xlsx", engine='openpyxl')
+
+# data cleaning
+# drop the string attributes when no detection
+df = df.replace(to_replace="No detection", value=None)
+# Focal string to int
+df["FocaleNumeric"] = df["Focale"].apply(lambda x: int(x[1:-2]))
+# Longitude string to float
+df["LongitudeNumeric"] = df["Longitude"].apply(lambda x: float(x[:-1]))
+
+# unfolding zoom accuracies
+df = add_all_zooms("AccuracyCarForcedZoom", df)
+df = add_all_zooms("AccuracyPersonForcedZoom", df)
+df = add_all_zooms("AccuracyStopSignForcedZoom", df)
+
+print(df.info())
+# saving to excel 
+df.to_excel("final_results.xlsx")
