@@ -2,7 +2,7 @@
 
 Project on studying a corpus of physical adversarial attacks on stop signs.
 
-Made for the AI project class of CentraleSupelec.
+Made for the spring 2023 AI project class of CentraleSupelec.
 ___
 
 ## Attacks studied
