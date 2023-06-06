@@ -1,6 +1,6 @@
 # Attacks-Defenses-on-AI
 
-Project on studying a corpus if physical adversarial attacks on stop signs. 
+Project on studying a corpus of physical adversarial attacks on stop signs. 
 
 Made for the AI project class of CentraleSupelec.
 ___
@@ -9,6 +9,7 @@ ___
 
 ### Shapeshifter 
 *Rémi Godet*
+
 For shapeshiter follow these steps : 
 1. install the environment described in Shapeshifter/requirements_shapefiter.txt
 If there is trouble with the object detection librabry you can : 
