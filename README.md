@@ -10,8 +10,6 @@ ___
 ### Shapeshifter 
 *Rémi Godet*
 
-Based on https://github.com/shangtse/robust-physical-attack
-
 For shapeshiter follow these steps : 
 1. install the environment described in Shapeshifter/requirements_shapefiter.txt
 If there is trouble with the object detection librabry you can : 
@@ -32,7 +30,8 @@ pip install -e "git+https://github.com/tensorflow/models.git#egg=object_detectio
 6. You now have the final Excel for insights and visualisation 
 
     *I recommend using dynamic tables in Excel, see the final_results.xlsx in this repo.*
-
+    
+Original work : https://github.com/shangtse/robust-physical-attack
 ___
 ### Patch attack
 *Benjamin Rio*
