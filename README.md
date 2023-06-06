@@ -37,6 +37,41 @@ ___
 ___
 ### GRAPHITE
 *Elian Mangin*
+
+### Packages
+```
+matplotlib==3.1.2
+numpy==1.17.4
+prettytable==2.2.0
+opencv_python==4.2.0.32
+pandas==0.25.3
+torchvision==0.8.1
+joblib==0.14.0
+tqdm==4.60.0
+scipy==1.3.3
+torch==1.7.0
+kornia==0.5.10
+Pillow==9.0.0
+python_Levenshtein==0.12.2
+```
+### Setup
+First off, download the GTSRB dataset and to put it in the same folder as GRAPHITE/
+
+### General usage:
+```
+python3 main.py -v <victim class index> -t <target class index> --tr_lo <tr_lo> --tr_hi <tr_hi> -s score.py -n GTSRB --heatmap=Target --coarse_mode=binary -b 100 -m 100
+```
+### Running GTSRB attacks from Table 8:
+Stop sign to Speed Limit 30: <br>
+```
+python3 main.py -v 14 -t 1 --tr_lo 0.65 --tr_hi 0.85 -s score.py -n GTSRB --heatmap=Target --coarse_mode=binary -b 100 -m 100
+```
+Stop sign to Pedestrians: <br>
+```
+python3 main.py -v 14 -t 27 --tr_lo 0.65 --tr_hi 0.85 -s score.py -n GTSRB --heatmap=Target --coarse_mode=binary -b 100 -m 100
+```
+
+Example outputs from Table 8 included in `example_outputs`.
 ___
 ### Laser Attack
 *Camille Lançon*
