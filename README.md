@@ -72,6 +72,8 @@ python3 main.py -v 14 -t 27 --tr_lo 0.65 --tr_hi 0.85 -s score.py -n GTSRB --hea
 ```
 
 Example outputs from Table 8 included in `example_outputs`.
+
+Original work : https://github.com/ryan-feng/GRAPHITE
 ___
 ### Laser Attack
 *Camille Lançon*
