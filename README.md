@@ -11,7 +11,7 @@ ___
 
 *Rémi Godet*
 
-For shapeshiter follow these steps :
+For shapeshifter follow these steps :
 
 1. install the environment described in Shapeshifter/requirements_shapefiter.txt
 If there is trouble with the object detection librabry you can :
