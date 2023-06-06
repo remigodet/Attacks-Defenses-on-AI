@@ -10,6 +10,8 @@ ___
 ### Shapeshifter 
 *Rémi Godet*
 
+Based on https://github.com/shangtse/robust-physical-attack
+
 For shapeshiter follow these steps : 
 1. install the environment described in Shapeshifter/requirements_shapefiter.txt
 If there is trouble with the object detection librabry you can : 
